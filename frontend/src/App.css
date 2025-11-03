@@ -1,0 +1,247 @@
+/* frontend/src/App.css (Fully Responsive Modern UI) */
+
+/* Global Reset and Typography */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f5f8ff; 
+    color: #1f2937; 
+    height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Base Grid: DESKTOP (Large Screens, default) */
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr; 
+    /* Desktop Layout: Left (300px), Center (Flexible 1fr), Right (300px) */
+    grid-template-columns: 300px 1fr 300px; 
+    height: 100vh; 
+    padding: 0;
+    margin: 0;
+    background: #f5f8ff;
+}
+
+/* Header Area */
+h1 {
+    grid-column: 1 / -1;
+    padding: 16px 30px;
+    margin: 0;
+    background-color: #002D62; 
+    color: white;
+    font-size: 1.5em;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10; 
+}
+
+/* --- Content Column Styling --- */
+.content-column {
+    grid-row: 2 / 3;
+    padding: 20px;
+    background-color: #f5f8ff; 
+    border-right: 1px solid #e0e6f0;
+    overflow-y: auto; 
+    display: flex; 
+    flex-direction: column;
+    gap: 20px; 
+}
+
+/* Specific Column Assignments (Desktop) */
+.column-left { grid-column: 1 / 2; }
+.column-center { grid-column: 2 / 3; }
+.column-right { 
+    grid-column: 3 / 4; 
+    border-right: none;
+}
+
+/* Styles for the inner sections (Animated Card Effect) */
+.content-column section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); 
+    border: 1px solid #e5e7eb; 
+    transition: box-shadow 0.3s ease, transform 0.3s ease; 
+}
+.content-column section:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
+    transform: translateY(-3px); 
+}
+
+/* Section Headings */
+h2 {
+    color: #002D62; 
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #002D6220;
+    padding-bottom: 8px;
+}
+
+/* Form & Inputs */
+.expense-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.expense-form label { font-weight: 500; color: #495057; }
+
+.expense-form input, 
+.expense-form select {
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px; 
+    font-size: 0.95em;
+    transition: border-color 0.2s, box-shadow 0.2s; 
+}
+.expense-form input:focus, 
+.expense-form select:focus {
+    border-color: #002D62;
+    box-shadow: 0 0 0 3px rgba(0, 45, 98, 0.2); 
+    outline: none;
+}
+
+/* Buttons and Animations */
+.expense-form button {
+    background-color: #002D62; 
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 15px;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.expense-form button:hover { background-color: #004d80; }
+.expense-form button:active {
+    transform: scale(0.98); 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); 
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: none; 
+    background-color: white;
+    font-size: 0.9em;
+}
+table th, table td {
+    padding: 12px 18px;
+    border-bottom: 1px solid #f0f4f7;
+    transition: background-color 0.2s ease; 
+}
+table tr:hover { background-color: #f5f8ff; }
+
+/* Delete Button */
+.delete-btn { 
+    padding: 5px 10px;
+    border-radius: 4px;
+    border-color: transparent;
+    background-color: #e6646e;
+    color: white; 
+    font-weight: 500;
+    font-size: 0.8em;
+    transition: background-color 0.15s ease, transform 0.1s ease; 
+}
+.delete-btn:hover { 
+    background-color: #d14955; 
+    transform: scale(1.05);
+}
+.delete-btn:active {
+    transform: scale(0.95);
+}
+
+/* Chart Styling */
+.chart-section {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.chart-box {
+    padding: 0; 
+    box-shadow: none;
+    width: 100%;
+    max-width: 350px; 
+    background: none;
+    margin: 0 auto; 
+}
+
+/* ========================================================= */
+/* --- 1. MEDIA QUERIES FOR TABLET DEVICES (<= 1024px) --- */
+/* ========================================================= */
+@media (max-width: 1024px) {
+    .container {
+        /* Collapse to two columns: Left sidebar (Form), Right flexible column (List + Chart) */
+        grid-template-columns: 300px 1fr; 
+    }
+
+    /* Move the Chart into the main content area below the List */
+    .column-right {
+        grid-column: 2 / 3; /* Assign Chart to the flexible right column */
+        grid-row: 3 / 4; /* Move Chart below the List */
+        border-right: 1px solid #e0e6f0;
+        border-top: 1px solid #e0e6f0; /* Add separator */
+    }
+
+    /* Adjust the main content (List) to occupy the main area */
+    .column-center {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        border-right: none;
+    }
+    
+    /* Ensure all columns are scrollable cards */
+    .content-column {
+        min-height: 40vh; /* Give space to the chart section */
+    }
+}
+
+
+/* ===================================================== */
+/* --- 2. MEDIA QUERIES FOR MOBILE DEVICES (<= 768px) --- */
+/* ===================================================== */
+@media (max-width: 768px) {
+    .container {
+        /* Collapse everything into a single stacking column */
+        grid-template-columns: 1fr; 
+        /* Stack the header, then all three columns in one scrollable view */
+        grid-template-rows: auto auto auto auto 1fr; 
+    }
+    
+    h1 {
+        font-size: 1.3em;
+    }
+
+    /* Stack all columns vertically and allow scrolling */
+    .content-column {
+        grid-column: 1 / -1; /* Full width */
+        min-height: auto;
+        height: auto;
+        overflow-y: visible; /* Allow content to flow and scroll vertically */
+        border-right: none;
+        border-bottom: 1px solid #e0e6f0; /* Separator between stacked sections */
+    }
+
+    /* Redefine Grid Rows for Stacking Order: Form, List, Chart */
+    .column-left { grid-row: 2 / 3; }    /* Row 2: Form */
+    .column-center { grid-row: 3 / 4; }  /* Row 3: List */
+    .column-right { grid-row: 4 / 5; border-bottom: none; } /* Row 4: Chart (no bottom border) */
+    
+    /* Adjust table for smaller screens: prioritize essential columns */
+    table th, table td {
+        padding: 10px 12px;
+        font-size: 0.85em;
+    }
+}
