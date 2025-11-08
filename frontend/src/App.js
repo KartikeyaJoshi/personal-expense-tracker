@@ -79,7 +79,7 @@ function App() {
 return (
     <div className="container">
       {/* HEADER - Spans All Three Columns */}
-      <h1>Personal Expense Tracker</h1>
+      <h1>SpendWell</h1>
 
       {/* COLUMN 1: LEFT - Add New Expense */}
       <div className="content-column column-left">

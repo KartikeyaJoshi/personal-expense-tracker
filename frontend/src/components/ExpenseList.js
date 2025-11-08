@@ -16,7 +16,7 @@ const ExpenseList = ({ expenses, onDelete }) => {
         {expenses.length > 0 ? (
           expenses.map((expense) => (
             <tr key={expense._id}>
-              <td>{expense.date}</td>
+              <td>{expense.expense_date}</td>
               <td>{expense.category}</td>
               <td>{expense.description || '-'}</td>
               <td style={{ color: parseFloat(expense.amount) > 0 ? '#dc3545' : '#28a745' }}>

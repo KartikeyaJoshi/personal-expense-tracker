@@ -9,11 +9,13 @@ from datetime import datetime
 from database import get_db_client
 from models import ExpenseBase, ExpenseInDB, CategorySummary
 
-app = FastAPI(title="Personal Expense Tracker", description="A simple API to track personal expenses.", version="1.0.0")
+app = FastAPI(title="SpendWell", description="A simple API to track personal expenses.", version="1.0.0")
 
 origins = [
     "http://localhost:3000",
-    "http://127.0.0.1:3000"
+    "http://127.0.0.1:3000",
+    "https://spendwell.vercel.app",
+    "*"
 ]
 
 app.add_middleware(
