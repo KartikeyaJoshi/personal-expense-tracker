@@ -14,7 +14,7 @@ app = FastAPI(title="SpendWell", description="A simple API to track personal exp
 origins = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://spendwell.vercel.app",
+    "https://spendwell-a3js.onrender.com/",
     "*"
 ]
 

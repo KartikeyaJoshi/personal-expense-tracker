@@ -5,7 +5,7 @@ import ExpenseList from './components/ExpenseList';
 import SpendingSummary from './components/SpendingSummary';
 
 // Base URL for your FastAPI backend
-const API_BASE_URL = 'http://127.0.0.1:8000/expenses';
+const API_BASE_URL = 'https://spendwell-a3js.onrender.com/expenses';
 const API_SUMMARY_URL = `${API_BASE_URL}/summary/category`;
 
 function App() {
